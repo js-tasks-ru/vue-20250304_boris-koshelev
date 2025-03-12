@@ -44,7 +44,7 @@ export default defineComponent({
     <div>
       <h1 class="title">Погода в Средиземье</h1>
       <ul class="weather-list unstyled-list">
-        <li v-for="weather in weatherData" :class="{ 'weather-card': true, 'weather-card--night': weather.isNight} ">
+        <li v-for="weather in weatherData" class="weather-card" :class="{ 'weather-card--night': weather.isNight} ">
           <div v-if="weather.alert" class="weather-alert">
             <span class="weather-alert__icon">⚠️</span>
             <span class="weather-alert__description">{{ weather.alert.sender_name }}: {{ weather.alert.description }}</span>
