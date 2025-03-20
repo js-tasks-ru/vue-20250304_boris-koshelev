@@ -26,8 +26,7 @@ const bgUrl = computed(() => `url(${props.image})`)
   background-position: center;
   /* Если изображение присутствует - берём его из CSS переменной, установленной на элемент в шаблоне */
   /* Иначе выводим изображение по умолчанию - var(--default-cover) */
-  --bgUrl: v-bind('bgUrl'), var(--default-cover);
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), var(--bgUrl);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), v-bind('bgUrl'), var(--default-cover);
   display: flex;
   flex-direction: column;
   align-items: center;

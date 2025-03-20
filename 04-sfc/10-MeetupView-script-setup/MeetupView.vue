@@ -6,14 +6,14 @@ import MeetupDescription from './MeetupDescription.vue'
 import MeetupCover from './MeetupCover.vue'
 import MeetupInfo from './MeetupInfo.vue'
 
-const props = defineProps({
+defineProps({
   meetup: Object,
 })
 </script>
 
 <template>
   <div>
-    <MeetupCover :title="props.meetup.title" :image="props.meetup.image" />
+    <MeetupCover :title="meetup.title" :image="meetup.image" />
     <!-- Обложка митапа -->
 
     <UiContainer>
@@ -22,17 +22,17 @@ const props = defineProps({
           <h2>Описание</h2>
 
           <!-- Описание митапа -->
-          <MeetupDescription :description="props.meetup.description" />
+          <MeetupDescription :description="meetup.description" />
           <h2>Программа</h2>
 
           <!-- Программа митапа -->
-          <MeetupAgenda v-if="props.meetup.agenda.length" :agenda="meetup.agenda"></MeetupAgenda>
+          <MeetupAgenda v-if="meetup.agenda.length" :agenda="meetup.agenda"></MeetupAgenda>
           <!-- Или при пустой программе - сообщение "Программа пока пуста..." в UiAlert -->
           <UiAlert v-else></UiAlert>
         </div>
         <div class="meetup__aside">
           <!-- Краткая информация о митапе -->
-          <MeetupInfo :date="props.meetup.date" :organizer="props.meetup.organizer" :place="props.meetup.place" />
+          <MeetupInfo :date="meetup.date" :organizer="meetup.organizer" :place="meetup.place" />
           <div class="meetup__aside-buttons"></div>
         </div>
       </div>
