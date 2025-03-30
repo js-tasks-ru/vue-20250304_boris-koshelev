@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts" generic="TSelectValue extends string">
+defineProps<{ options: { text: string; value: TSelectValue }[] }>()
+const modelValue = defineModel<TSelectValue>({ required: true })
+</script>
 
 <template>
-  <select class="select">
-    <option value="value-1">One</option>
-    <option value="value-2">Two</option>
+  <select v-model="modelValue" class="select">
+    <option v-for="option in options" :key="option.value" :value="option.value">
+      {{ option.text }}
+    </option>
   </select>
 </template>
 
